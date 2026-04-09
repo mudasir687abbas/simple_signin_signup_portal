@@ -1,0 +1,35 @@
+header{
+    position: sticky;
+    top:0;
+    background: var(--header-bg);
+    border-bottom: 1px solid rgb(83, 81, 81);
+    padding:10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1{
+    font-size:22px;
+    color:white;
+}
+
+header nav{
+    display: flex;
+    gap:10px;
+}
+
+header nav button{
+    width:max-content;
+    height:max-content;
+    padding:8px 15px;
+    border-radius:10px;
+    color:white;
+    border:1px solid  #7c6af7;
+    background-color:transparent;
+    font-size: var(--btn-font-size);
+    transition:all 0.2s;
+}
+header nav button:hover{
+    box-shadow: var(--box-shadow);
+}

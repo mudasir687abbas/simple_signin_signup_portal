@@ -1,0 +1,80 @@
+.registerDiv{
+    height:calc(100vh - 96.67px);
+    min-height: max-content;
+    padding:20px 0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.formDiv{
+    width:90%;
+    max-width: 350px;
+}
+
+.formDiv form{
+    color:white;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    padding:30px 20px;
+    background: var(--form-bg);
+    border-radius:20px;
+    box-shadow: var(--box-shadow);
+}
+
+.formDiv form p{
+    font-size: 12px;
+
+}
+
+.formDiv form p span{
+    color:blueviolet;
+    cursor:pointer;
+}
+.formDiv form .title{
+    font-size: 18px;
+    text-align: center;
+
+}
+.formDiv form .subTitle{
+    font-size: 14px;
+    margin-bottom:10px;
+    text-align: center;
+}
+
+.formDiv form .formgroup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:3px;    
+}
+
+.formDiv form .formgroup label{
+    font-weight: bold;
+}
+
+.formDiv form .formgroup input[type='email'],input[type='text'],input[type='password']{
+    height:35px;
+    padding:0px 8px;
+    color:white;
+    outline:none;
+    border:1px solid rgb(82, 78, 78);
+    border-radius:5px;
+    background: transparent;
+    transition: all 0.2s;  
+}
+
+form .formbtngroup{
+    display:flex;
+    gap:5px;
+    
+}
+form .formbtngroup input[type='submit'],input[type='reset']{
+   width:100%;
+   padding:10px 5px;   
+   background:#7c6af7;
+   border:none; 
+   color:white;
+   font-size: var(--btn-font-size);
+   border-radius:5px;
+}
