@@ -14,7 +14,8 @@ app.use(express.json());
 app.use('/api/auth',middlewareCheckDB,register);
 
 app.get('/',(req,res)=>{
-    res.json({msg:"Server is running on port#5000"});
+   
+    res.json({msg:"Server is running on port#5000 and db is  available"});
  });
  
 app.use(middlewareError);

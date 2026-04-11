@@ -11,7 +11,7 @@ const AuthWrapper = ({children})=>{
     
     const register = async (data)=>{
      let res = await api_register(data);
-     return res.success;
+     return res;
     }
 
     const login = async (data)=>{
