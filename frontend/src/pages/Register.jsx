@@ -8,9 +8,9 @@ const Register=({toggleForm})=>{
     let {name,value} = e.target;
     setFormData({ ...formData, [name]: value });
   }
-  const submitForm = (e)=>{
+  const submitForm = async (e)=>{
       e.preventDefault();
-      let isRegisterd = register(formData);
+      let isRegisterd = await register(formData);
       if(isRegisterd.success){
         alert("You are registerd.Now you can login");
         setFormData({name:'',email:'',password:''});
