@@ -2,6 +2,7 @@ const BASE_URL = "https://simple-signin-signup-portal-backend.vercel.app"
 
 
 const api_register = async (data)=>{
+    
     let res = await fetch(`${BASE_URL}/api/auth/register`,{
          method:"POST",
          body:JSON.stringify(data),
@@ -9,6 +10,7 @@ const api_register = async (data)=>{
     }
     );
     let res_data = await res.json();
+    console.log(res_data);
     return res_data;
 }
 const api_login = async (data)=>{
