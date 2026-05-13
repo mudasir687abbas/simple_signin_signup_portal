@@ -1,7 +1,10 @@
 import { authContext } from '../context/AuthContext';
-import './dashboard.css'
+import '../styles/dashboard.css'
 const Dashboard = ()=>{
-    const {logedUser} = authContext();
+    const {logedUser,setLoading} = authContext();
+    if(logedUser)
+        setLoading(false)
+    
     return(
         <div className='dashboardDiv'>
           <h1>Dear, <span>{logedUser.name}</span></h1>

@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.VITE_API_URL;
+const BASE_URL = import.meta.env.ONELINE_BACKEND_URL;
 
 
 const api_register = async (data)=>{

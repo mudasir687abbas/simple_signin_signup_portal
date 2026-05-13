@@ -1,8 +1,8 @@
-import './register.css';
+import '../styles/register.css';
 import {useState,useEffect} from 'react';
 import { authContext } from '../context/AuthContext';
 const Login=({toggleForm})=>{
-  const {login} = authContext();
+  const {login,setLoading} = authContext();
   const [formData,setFormData] = useState({email:'',password:''});
     const handleChange = (e)=>{
       let {name,value} = e.target;
@@ -11,10 +11,11 @@ const Login=({toggleForm})=>{
     }
     const submitForm = (e)=>{
         e.preventDefault();
+        setLoading(true);
         let isLogged = login(formData);
-        if(isLogged)
+        if(isLogged.success){
           setFormData({name:'',email:'',password:''});
-  
+        }
       }
     return(
       <div className='registerDiv'>

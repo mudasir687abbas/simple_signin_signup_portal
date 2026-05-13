@@ -14,13 +14,13 @@ router.post('/register', async (req,res)=>{
     try{
         let isExistsEmail = await user.findOne({email});
         if(isExistsEmail){
-          res.json({success:false,msg:'Email already exist'});
+          res.json({success:false,message:'Email already exist'});
           return;
 
         }
         let savedUser = await user.create({name,email,password});
         let token = generateToken(savedUser._id);
-        res.json({success:true,msg:"User is registered",data:savedUser,token});
+        res.json({success:true,message:"User is registered",data:savedUser,token});
     }catch(e){
         res.status(500).json({success:false,message:'Server Error'});
     }
@@ -35,16 +35,16 @@ router.post('/login', async (req,res)=>{
     try{
         let isEmail = await user.findOne({email}).select('+password');
         if(!email){
-          res.json({msg:'Email do not exist'});
+          res.json({success:false,message:'Email do not exist'});
           return;
 
         }
         if(password != isEmail.password){
-           res.json({msg:'Password is incorrect'});
+           res.json({success:false,message:'Password is incorrect'});
            return;
         }
         let token = generateToken(isEmail._id);
-        res.json({success:true,msg:"User is authorized",id:isEmail._id,name:isEmail.name,email:isEmail.email,token});
+        res.json({success:true,message:"User is authorized",id:isEmail._id,name:isEmail.name,email:isEmail.email,token});
     }catch(e){
         res.status(500).json({message:'Server Error'});
     }

@@ -6,11 +6,13 @@ import {useState} from 'react';
 import { authContext } from './context/AuthContext';
 import Dashboard from './pages/Dashboard';
 import './App.css';
+import Loader from './components/Loader';
 function App() {
-  const {logedUser} = authContext();
+  const {logedUser,loading} = authContext();
   const [isShowLoginForm,setShowLoginForm] = useState(true);
   return (
     <div className='app'>
+      {loading ? <Loader/> : null}
      <Header toggleForm={setShowLoginForm} togglerForm={isShowLoginForm}/>
      <div className='main'>
        {logedUser ? <Dashboard/> : isShowLoginForm ? <Login toggleForm={setShowLoginForm}/> : <Register toggleForm={setShowLoginForm}/>}

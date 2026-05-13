@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import {authContext} from '../context/AuthContext';
-import './register.css';
+import '../styles/register.css';
 const Register=({toggleForm})=>{
-  const {register} = authContext()
+  const {register,setLoading} = authContext()
   const [formData,setFormData] = useState({name:'',email:'',password:''});
   const handleChange = (e)=>{
     let {name,value} = e.target;
@@ -10,15 +10,19 @@ const Register=({toggleForm})=>{
   }
   const submitForm = async (e)=>{
       e.preventDefault();
+      setLoading(true);
       let isRegisterd = await register(formData);
       if(isRegisterd.success){
+        setLoading(false);
         alert("You are registerd.Now you can login");
         setFormData({name:'',email:'',password:''});
         toggleForm(true);
 
       }else{
-        alert(isRegisterd.msg);
+        alert(isRegisterd.message);
       }
+      
+      console.log(isRegisterd);
 
     }
 

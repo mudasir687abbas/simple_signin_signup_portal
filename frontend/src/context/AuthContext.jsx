@@ -8,6 +8,8 @@ const AuthWrapper = ({children})=>{
         return fetchLogedUser;
     });
 
+    const [loading,setLoading] = useState(false);
+
     
     const register = async (data)=>{
      let res = await api_register(data);
@@ -15,8 +17,7 @@ const AuthWrapper = ({children})=>{
     }
 
     const login = async (data)=>{
-        let res= await api_login(data);
-        console.log(res) 
+        let res= await api_login(data); 
         if(res.success){
           setLogedUser(res);
           localStorage.setItem('loged_user',JSON.stringify(res));
@@ -31,7 +32,7 @@ const AuthWrapper = ({children})=>{
     }
     
     return (
-        <AuthContext.Provider value={{register,login,logedUser,setLogedUser,logout}}>
+        <AuthContext.Provider value={{register,login,logedUser,setLogedUser,logout,loading,setLoading}}>
             {children}
         </AuthContext.Provider>
     )
