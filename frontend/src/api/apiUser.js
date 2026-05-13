@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.ONLINE_BACKEND_URL;
+const BASE_URL = "https://simple-signin-signup-portal-backend.vercel.app"
 
 
 const api_register = async (data)=>{
